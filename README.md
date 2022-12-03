@@ -1,4 +1,5 @@
 # Online-Movie-Store
+##### Python Django Project
 It is a simple web app for showing movie details with **Python Django**
 functionalities, Using mysql as Database.
 
