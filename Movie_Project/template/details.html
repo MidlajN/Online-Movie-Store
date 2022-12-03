@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<style>
+    body {
+    background-image: url({% static 'black3.jpg' %});
+    background-repeat: no-repeat;
+    background-size:cover;
+    }
+</style>
+
+<body>
+
+<div align="center" style="padding:10px">
+    <img src="{{movie_key.img.url}}" width="200" height="270"><br><br>
+    <h1 style="color:lightgrey;font-family:sans-serif;">{{movie_key.movie}}</h1>
+    <p class="fw-lighter" style="color:lightgrey;">{{movie_key.year}}<br>
+        Director: {{movie_key.director}}<br>
+    </p>
+</div>
+
+<div class="container text-center lh-lg" style="color:white;">
+    {{movie_key.desc}}<br>
+</div>
+
+<div align="center" style="padding:50px">
+    {% if user.is_authenticated %}
+    <a class="btn btn-warning" href="{% url 'MovieApp:update' movie_key.id %}">Update</a>
+    <a class="btn btn-outline-danger" href="{% url 'MovieApp:delete' movie_key.id %}">Delete</a>
+    {% endif %}
+</div>
+
+{% endblock %}
+</body>
+</html>
